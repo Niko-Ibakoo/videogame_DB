@@ -18,11 +18,11 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     req = req.clone({
       setHeaders: {
-        'X-RapidAPI-Key': environment.RAPID_API_KEY,
-        'X-RapidAPI-Host': environment.API_URL,
+        'Authorization': `Token ${environment.TOKEN}`, // Set the token header
+        'Content-Type': 'application/json', // Set the Content-Type header
       },
       setParams: {
-        key: environment.API_KEY,
+        key: environment.TOKEN,
       },
     });
     return next.handle(req);

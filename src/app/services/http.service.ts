@@ -20,5 +20,5 @@ export class HttpService {
     }
 
     return this.http.get<APIResponse<Game>>(`${env.API_URL}/games`,{params:params})
-  }
+  } 
 }
